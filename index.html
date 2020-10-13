@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Nom de la page web -->
+  <title>Musicotherika, a simple tool by Music Therapist Érika G.</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/addons/datatables2.min.css" rel="stylesheet">
+<!-- fceffc fcfcef-->
+<style>
+body {
+  background-color: #fcfcef;
+  padding: 25px;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.a {
+  text-align: center;
+}
+
+.b {
+  text-align: right;
+}
+
+
+.text {
+  background-color: gray;
+  color: white;
+  font-size: 10vw;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+.image {
+  animation: mymove 10s infinite;
+  background-image: url("piano.jpg");
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 1;
+}
+
+.image2 {
+  animation: mymove 10s infinite;
+  background-image: url("guitar.jpg");
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 1;
+}
+
+.image3 {
+  animation: mymove 10s infinite;
+  background-image: url("bodhran2.jpg");
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 1;
+}
+.image4 {
+  animation: mymove 10s infinite;
+  background-image: url("fiddle.jpg");
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 1;
+}
+.image5 {
+  animation: mymove 10s infinite;
+  background-image: url("accordeon.jpg");
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 1;
+}
+
+/* Fade to Gray each photo*/
+@keyframes mymove {
+  50% {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+}
+
+.mySlides {display: none}
+.mySlides2 {display: none}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width: auto;
+  position: relative;
+  margin: auto;
+}
+
+
+</style>
+</head>
+
+<body>
+
+  <!-- EN-TÊTE -->
+<header>
+<div class="slideshow-container">
+
+<div class="image mySlides2">
+  <div class="text">
+    <h1 style="font-size:50px">MUSICOTHERIKA</h1>
+  </div>
+</div>
+
+<div class="image2 mySlides2">
+  <div class="text">
+    <h1 style="font-size:50px">MUSICOTHERIKA</h1>
+  </div>
+</div>
+
+<div class="image3 mySlides2">
+  <div class="text">
+    <h1 style="font-size:50px">MUSICOTHERIKA</h1>
+  </div>
+</div>
+
+<div class="image4 mySlides2">
+  <div class="text">
+    <h1 style="font-size:50px">MUSICOTHERIKA</h1>
+  </div>
+</div>
+
+<div class="image5 mySlides2">
+  <div class="text">
+    <h1 style="font-size:50px">MUSICOTHERIKA</h1>
+  </div>
+</div>
+<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+
+</header>
+
+<!-- PRÉSENTATION-->
+<div class= "a" style="font-size:20px">Bonjour, que puis-je rechercher pour vous aujourd'hui?</h3>
+<i><h4 style="font-size:18px">Hi there, what can i search for you today?</h4></i>
+
+<!-- DARK MODE
+<div class="b" style="font-size: 10px"><button onclick="myFunction()">Toggle dark mode</button>
+-->
+
+<!-- TABLEAU-->
+<table id="dt-vertical-scroll" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+      <tr>
+        <th class="th-sm">Titre
+        </th>
+        <th class="th-sm">Configuration
+        </th>
+        <th class="th-sm">Âge
+        </th>
+        <th class="th-sm">Diagnostic
+        </th>
+        <th class="th-sm">Buts
+        </th>
+        <th class="th-sm">Description
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Floor is Lava with music</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant</td>
+        <td>DIL, TSA, NT</td>
+        <td>Moteur, Emotionnel</td>
+        <td>Alors wesh tu mets des chaises partout et genre tu mets de la musique et tout le monde danse sa mémé pis quand la musique s'arrête tout le monde y doit trouver une chaise sinon ses pieds brûle comme deux grosses bûches tabarnak wesh yo</td>
+      </tr>
+
+      <tr>
+        <td>Chef d'orchestre</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte, Senior</td>
+        <td>DIL, TSA-V, TSA-Nv, NT</td>
+        <td>Communication, Cognitif, Moteur, Social</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Dialogue percussif</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant,Adolescent, Jeune adulte, Adulte, Senior</td>
+        <td>DIL, TSA-V, TSA-Nv, NT</td>
+        <td>Communication, Emotionnel, Social</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Conte sonorisé</td>
+        <td>Individuel</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, TSA-V, NT</td>
+        <td>Cognitif, Emotionnal</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Apprentissage color pattern</td>
+        <td>Individuel</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, DIP, TSA-V</td>
+        <td>Cognitif, Emotionnal, Moteur, Musical</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Déchiffrage partition couleur</td>
+        <td>Individuel</td>
+        <td>Enfant, Adolescent, Jeune adulte ; Adulte</td>
+        <td>DIL, DIP, TSA-V, NT</td>
+        <td>Cognitif, Musical</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Emotions au piano</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte, Senior</td>
+        <td>DIL, TSA-V, TP, NT</td>
+        <td>Emotionnel, Social</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Stop n'Go</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant, Adolescent, Jeune adulte</td>
+        <td>DIL, DIP, TSA-V, NT</td>
+        <td>Cognitif, Moteur, Emotionnel</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Mouvements en musique</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte, Senior</td>
+        <td>DIL, DIP, TSA-V, TP, NT</td>
+        <td>Emotionnel, Moteur</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Quel instrument entend-on ?</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte, Senior</td>
+        <td>DIL, TSA-V, NT</td>
+        <td>Communication, Cognitif, Musical</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Chanson à trous</td>
+        <td>Individuel</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte, Senior</td>
+        <td>DIL, DIP, TSA-V, TSA-Nv, NT</td>
+        <td>Communication, Cognitif, Musical</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Echanges verbaux avec instrument</td>
+        <td>Individuel, Groupe</td>
+        <td>Enfant, Adolescent, Jeune adulte, Adulte, Senior</td>
+        <td>DIL, TSA-V ; NT</td>
+        <td>Communication, Cognitif, Emotionnel, Social</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Titre</td>
+        <td>Individuel</td>
+        <td>Enfant</td>
+        <td>DIL</td>
+        <td>Communication</td>
+        <td>zzzzzz</td>
+      </tr>
+
+      <tr>
+        <td>Titre</td>
+        <td>Individuel</td>
+        <td>Enfant</td>
+        <td>DIL</td>
+        <td>Communication</td>
+        <td>zzzzzz</td>
+      </tr>
+
+
+
+
+  </tbody>
+</table>
+</div>
+
+<div class="a" style="font-size:20px">MUSICOTHERIKA
+</div>
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- MDBootstrap Datatables  -->
+  <script type="text/javascript" src="js/addons/datatables2.min.js"></script>
+
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript">
+
+//Tableau
+  $(document).ready(function () {
+    $('#dt-vertical-scroll').dataTable({
+      "paging": false,
+      "fnInitComplete": function () {
+        var myCustomScrollbar = document.querySelector('#dt-vertical-scroll_wrapper .dataTables_scrollBody');
+        var ps = new PerfectScrollbar(myCustomScrollbar);
+      },
+      "scrollY": 450,
+    });
+  });
+
+//Toggle dark mode
+
+  function myFunction() {
+     var element = document.body;
+     element.classList.toggle("dark-mode");
+  }
+
+// Automatic Slideshow - change image every 4 seconds
+var slideIndex = [1,1];
+var slideId = ["mySlides2"]
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex[no]-1].style.display = "block";
+}
+
+//slideshow
+
+  </script>
+
+</body>
+</html>
