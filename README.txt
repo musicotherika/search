@@ -1,1 +1,1 @@
-Musicotherika, a simple tool by Music Therapist Érika G.
+Musicotherika, a simple tool for Music Therapist by Érika
