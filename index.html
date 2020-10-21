@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/mdb.min.css">
-  <link rel="stylesheet" href="css/style.css">
   <link href="css/addons/datatables2.min.css" rel="stylesheet">
   <!-- jQuery -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -277,6 +276,13 @@ h5 {font-size:1.5rem;} /*1rem = 16px*/
   color: gray;
 }
 
+.btn-group-xs > .btn, .btn-xs {
+  padding: .6rem .9rem;
+  font-size: .8rem;
+  line-height: 1;
+  border-radius: .1rem;
+}
+
 span{
   font-size: 15px;
 }
@@ -353,8 +359,8 @@ width: 90% !important;
 <!-- TABLEAU-->
 <!-- Padding = Espacement à l'extérieur du tableau-->
 
-<div style="padding: 30px;">
-<table id="dt-vertical-scroll" class="table table-responsive table-hover table-bordered table-sm" cellspacing="0" width="100%">
+<div class="table-responsive" style="padding: 30px;">
+<table id="dt-vertical-scroll" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
   <thead>
       <tr>
         <th class="th-sm">Titre
@@ -369,7 +375,8 @@ width: 90% !important;
         </th>
         <th class="th-lg">Objectifs
         </th>
-        <th class="th-sm">Notes
+        <!-- On ignore le contenu de la colonne Notes dans la search-->
+        <th class="th-sm" data-searchable="false">Notes
         </th>
       </tr>
     </thead>
@@ -383,17 +390,29 @@ width: 90% !important;
         <td>DIL, TSA, NrT</td>
         <td>Moteur, Emotionnel</td>
         <td>zzz</td>
-        <td> <!--1re ligne = Nom de l'activité-->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Infos</button>
-          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-sm">
-            <!--Ici le contenu-->
-          <div class="modal-content nosearch" style="font-size:18px">Voici la description de cette activité comme vous la voyez ici présente.
-          </div>
-          </div>
-          </div>
+        <td>
+          <!-- Button Infos Changer le numéro du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#infos1">Infos</button>
+          <div class="modal fade" id="infos1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Floor is Lava with music 🌋</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>1983, Un premier miracle survient dans la province de Québec</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
         </td>
-
       </tr>
 
       <tr>
@@ -403,15 +422,28 @@ width: 90% !important;
         <td>DIL, TSA-V, TSA-Nv, NrT</td>
         <td>Communication, Cognitif, Moteur, Social</td>
         <td>zzz</td>
-        <td> <!--1re ligne = Nom de l'activité-->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">2</button>
-          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-sm">
-            <!--Ici le contenu-->
-          <div class="modal-content" style="font-size:18px">Voici la 2e description.
-          </div>
-          </div>
-          </div>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-secondary" data-toggle="modal" data-target="#infos2">Infos</button>
+          <div class="modal fade" id="infos2" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Chef d'orchestre ╿</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>1985, Un deuxième miracle survient dans la ville de Montreal</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
         </td>
       </tr>
 
@@ -422,7 +454,29 @@ width: 90% !important;
         <td>DIL, TSA-V, TSA-Nv, NT</td>
         <td>Communication, Emotionnel, Social</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#infos3">Infos</button>
+          <div class="modal fade" id="infos3" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Dialogue percussif 🥁</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>1989, Un troisième miracle survient dans la ville de Québec</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -432,7 +486,29 @@ width: 90% !important;
         <td>SM, NrT</td>
         <td>Emotionnel</td>
         <td>Expression émotionnelle</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#infos4">Infos</button>
+          <div class="modal fade" id="infos4" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Black Out Poetry 📝</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -442,7 +518,29 @@ width: 90% !important;
         <td>DIL, TSA-V, NrT</td>
         <td>Cognitif, Emotionnal</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#infos5">Infos</button>
+          <div class="modal fade" id="infos5" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Conte sonorisé 📖</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -452,7 +550,29 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V</td>
         <td>Cognitif, Emotionnal, Moteur, Musical</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#infos6">Infos</button>
+          <div class="modal fade" id="infos6" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Apprentissage pattern couleur 🎨</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -462,8 +582,29 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, NrT</td>
         <td>Cognitif, Musical</td>
         <td>zzz</td>
-        <td>1</td>
-
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-light" data-toggle="modal" data-target="#infos7">Infos</button>
+          <div class="modal fade" id="infos7" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Déchiffrage partition couleur 🎼</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -473,7 +614,29 @@ width: 90% !important;
         <td>DIL, TSA-V, SM, NrT</td>
         <td>Emotionnel, Social</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-dark" data-toggle="modal" data-target="#infos8">Infos</button>
+          <div class="modal fade" id="infos8" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Emotions au piano 🎹</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -483,7 +646,29 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, NrT</td>
         <td>Cognitif, Moteur, Emotionnel</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-link" data-toggle="modal" data-target="#infos9">Infos</button>
+          <div class="modal fade" id="infos9" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Stop n'Go 🛑</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -493,7 +678,29 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, SM, NrT</td>
         <td>Emotionnel, Moteur</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-elegant" data-toggle="modal" data-target="#infos10">Infos</button>
+          <div class="modal fade" id="infos10" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Mouvements en musique 🕺💃</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -503,7 +710,29 @@ width: 90% !important;
         <td>DIL, TSA-V, NrT</td>
         <td>Communication, Cognitif, Musical</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-unique" data-toggle="modal" data-target="#infos11">Infos</button>
+          <div class="modal fade" id="infos11" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Quel instrument entend-on? 🎧</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -513,7 +742,29 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, TSA-Nv, NrT</td>
         <td>Communication, Cognitif, Musical</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-pink" data-toggle="modal" data-target="#infos12">Infos</button>
+          <div class="modal fade" id="infos12" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Chanson à trous 🕳</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -523,7 +774,29 @@ width: 90% !important;
         <td>DIL, TSA-V, NrT</td>
         <td>Communication, Cognitif, Emotionnel, Social</td>
         <td>zzz</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-purple" data-toggle="modal" data-target="#infos13">Infos</button>
+          <div class="modal fade" id="infos13" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Echanges verbaux avec instrument 🗣</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -533,7 +806,29 @@ width: 90% !important;
         <td>SM, NrT</td>
         <td>Emotionnel, social</td>
         <td>Expression émotionnelle, relaxation</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-deep-purple" data-toggle="modal" data-target="#infos14">Infos</button>
+          <div class="modal fade" id="infos14" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Mantra au piano 🎹</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -543,7 +838,29 @@ width: 90% !important;
         <td>SM, NrT</td>
         <td>Social</td>
         <td>Team bonding</td>
-        <td>1</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-indigo" data-toggle="modal" data-target="#infos15">Infos</button>
+          <div class="modal fade" id="infos15" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Quizz musical pour prénoms ❓</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
 
       <tr>
@@ -553,38 +870,300 @@ width: 90% !important;
         <td>DIL, SM, NrT</td>
         <td>Emotionnel</td>
         <td>Expression émotionelle, relaxation</td>
-        <td>1</td>
-      </tr>
-
-
-
-
-
-
-
-
-<!-- NEW À COPIER ET COLLER en haut
-
-      <tr>
-        <td>🎸🎸🎸ZzzNEWzzZ🎸🎸🎸</td>
-        <td>Individuel</td>
-        <td>Enfant</td>
-        <td>DIL</td>
-        <td>Communication</td>
-        <td>zzz</td>
         <td>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Infos</button>
-          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-sm">
-          <div class="modal-content nosearch" style="font-size:18px">Voici la description de cette activité comme vous la voyez ici présente.
-          </div>
-          </div>
-          </div>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-light-blue" data-toggle="modal" data-target="#infos16">Infos</button>
+          <div class="modal fade" id="infos16" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Imagerie en musique 🖼</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
         </td>
       </tr>
 
-FIN du COPIER COLLER-->
+      <tr>
+        <td>111111</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-cyan" data-toggle="modal" data-target="#infos17">Infos</button>
+          <div class="modal fade" id="infos17" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">111111</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
 
+      <tr>
+        <td>222222</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-dark-green" data-toggle="modal" data-target="#infos18">Infos</button>
+          <div class="modal fade" id="infos18" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">222222</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>3333333</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-light-green" data-toggle="modal" data-target="#infos19">Infos</button>
+          <div class="modal fade" id="infos19" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">3333333</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>4444444</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-amber" data-toggle="modal" data-target="#infos20">Infos</button>
+          <div class="modal fade" id="infos20" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">4444444</h4>
+                </div>
+                  <div class="modal-body" style="font-size:18px">
+                  <p>TEXTEICI</p><hr>
+                  </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>555555</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-deep-orange" data-toggle="modal" data-target="#infos21">Infos</button>
+          <div class="modal fade" id="infos21" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">555555</h4>
+                </div>
+                <div class="modal-body" style="font-size:18px">
+                <p>TEXTEICI</p><hr>
+                </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>6666666</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-brown" data-toggle="modal" data-target="#infos22">Infos</button>
+          <div class="modal fade" id="infos22" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">666666</h4>
+                </div>
+                <div class="modal-body" style="font-size:18px">
+                <p>TEXTEICI</p><hr>
+                </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>7777777</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-blue-grey" data-toggle="modal" data-target="#infos23">Infos</button>
+          <div class="modal fade" id="infos23" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">7777777</h4>
+                </div>
+                <div class="modal-body" style="font-size:18px">
+                <p>TEXTEICI</p><hr>
+                </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>8888888</td>
+        <td>Individuel, Groupe</td>
+        <td>Adolescent, Jeune adulte, Adulte</td>
+        <td>DIL, SM, NrT</td>
+        <td>Emotionnel</td>
+        <td>Expression émotionelle, relaxation</td>
+        <td>
+          <!-- Button Infos Changer le nom du datarget et correspondre au id-->
+          <button type="button" class="btn btn-xs btn-mdb-color" data-toggle="modal" data-target="#infos24">Infos</button>
+          <div class="modal fade" id="infos24" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Contenu-->
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">888888</h4>
+                </div>
+                <div class="modal-body" style="font-size:18px">
+                <p>TEXTEICI</p><hr>
+                </div>
+                    <!-- Si on veut un bas avec un bouton fermer
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                    -->
+                </div>
+              </div>
+            </div>
+        </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- NEW À COPIER ET COLLER en haut-->
 
 <!-- FIN DU TABLEAU-->
   </tbody>
@@ -598,7 +1177,8 @@ FIN du COPIER COLLER-->
     <a class="btn btn-warning mb-4" href="https://docs.google.com/spreadsheets/d/1JDEbgAhGD7LCzeF9r5q2OqIA0QB4P_XUqXO9fQsuNHU/edit?usp=sharing" role="button" target="_blank">Ajouter une suggestion</a>
   </div>
 
-<table class="table table-responsive table-striped table-bordered table-sm" cellspacing="0" width="100%">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
     <!-- Table head -->
     <thead>
       <tr>
@@ -618,7 +1198,7 @@ FIN du COPIER COLLER-->
     </tbody>
   </table>
 </div>
-
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -696,20 +1276,6 @@ $(document).ready(function() {
     window.location = "mailto:musicotherika@gmail.com";
   });
 });
-
-
-
-
-//DISABLE SEARCH IN MODAL POPUP
-$('#nosearch').DataTable({
-"search": {
-  "smart": false
-} // false to disable search (or any other option)
-});
-
-
-
-
 
 
   //Ajout donné Google sheet
