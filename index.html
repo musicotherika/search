@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <!-- Nom de la page web -->
-  <title>MTool, a simple tool for Music Therapist by Erika</title>
+  <title>MTool, a simple tool for Music Therapist by Erika G.</title>
   <link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -15,6 +15,16 @@
   <link rel="stylesheet" href="css/mdb.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link href="css/addons/datatables2.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- MDBootstrap Datatables  -->
+  <script type="text/javascript" src="js/addons/datatables2.min.js"></script>
 <!-- Couleur background rose pale fceffc - beige pale fcfcef-->
 <style>
 body {
@@ -24,7 +34,7 @@ body {
 }
 
 .dark-mode {
-  background-color: #1a1a1a;
+  background-color: #000000;
   color: white;
 }
 
@@ -48,27 +58,124 @@ body {
   height: auto;
   text-align: center;
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
-}
+  animation: fadeIn 3s;
+  }
 
 .text2 {
-  background-color: black;
   color: white;
   font-weight: bold;
   font-family: 'Amatic SC', cursive;
   margin: 0 auto;
-  padding: 1px;
+  padding: 0px;
   width: auto;
   height: auto;
   text-align: center;
   position: absolute;
-  top: 85%;
+  top: 82%;
   left: 50%;
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
+  animation: fadeIn 6s;
+}
+
+/* FONT SIZE POUR LE Titre Principal MTool par default */
+h1 {font-size:6rem;} /*1rem = 16px*/
+/* Xsmall devices (small phones, 200px and up) */
+@media (min-width: 200px) {
+  h1 {font-size:2rem;} /*1rem = 16px*/
+}
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  h1 {font-size:3rem;} /*1rem = 16px*/
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1 {font-size:4rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 900px) {
+  h1 {font-size:4rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1000px) {
+  h1 {font-size:5rem;} /*1rem = 16px*/
+}
+
+
+/* FONT SIZE POUR LE Titre Secondaire Outils... par default */
+
+h2 {font-size:2rem;} /*1rem = 16px*/
+/* Xsmall devices (small phones, 200px and up) */
+@media (min-width: 200px) {
+  h2 {font-size:1.5rem;} /*1rem = 16px*/
+}
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  h2 {font-size:1.5rem;} /*1rem = 16px*/
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h2 {font-size:1.6rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 920px) {
+  h2 {font-size:1.7rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1300px) {
+  h2 {font-size:2rem;} /*1rem = 16px*/
+}
+
+/* FONT SIZE POUR LA Question Principale  Bonjour,... par default */
+
+h4 {font-size:1.8rem;} /*1rem = 16px*/
+/* Xsmall devices (small phones, 200px and up) */
+@media (min-width: 200px) {
+  h4 {font-size:1.2rem;} /*1rem = 16px*/
+}
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  h4 {font-size:1.4rem;} /*1rem = 16px*/
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h4 {font-size:1.5rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 920px) {
+  h4 {font-size:1.6rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1300px) {
+  h4 {font-size:1.8rem;} /*1rem = 16px*/
+}
+
+/* FONT SIZE POUR La Question Secondaire (entrez)... */
+
+h5 {font-size:1.5rem;} /*1rem = 16px*/
+/* Xsmall devices (small phones, 200px and up) */
+@media (min-width: 200px) {
+  h5 {font-size:0.8rem;} /*1rem = 16px*/
+}
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  h5 {font-size:1rem;} /*1rem = 16px*/
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h5 {font-size:1.2rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 920px) {
+  h5 {font-size:1.3rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1300px) {
+  h5 {font-size:1.5rem;} /*1rem = 16px*/
 }
 
 
@@ -191,39 +298,39 @@ width: 90% !important;
   <!-- EN-TÊTE -->
 <div class="slideshow-container">
 
-<div class="image2 mySlides2">
+<div class="image2 mySlides2 fadeIn">
   <div class="text">
-    <h1 style="font-size:80px">MTool</h1>
+    <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h1 style="font-size:30px">Un outil de classement d'interventions pour les musicothérapeutes</h1>
+    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
   </div>
 </div>
 
 <div class="image3 mySlides2">
   <div class="text">
-    <h1 style="font-size:80px">MTool</h1>
+    <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h1 style="font-size:30px">Un outil de classement d'interventions pour les musicothérapeutes</h1>
+    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
   </div>
 </div>
 
 <div class="image4 mySlides2">
   <div class="text">
-    <h1 style="font-size:80px">MTool</h1>
+    <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h1 style="font-size:30px">Un outil de classement d'interventions pour les musicothérapeutes</h1>
+    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
   </div>
 </div>
 
 <div class="image5 mySlides2">
   <div class="text">
-    <h1 style="font-size:80px">MTool</h1>
+    <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h1 style="font-size:30px">Un outil de classement d'interventions pour les musicothérapeutes</h1>
+    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
   </div>
 </div>
 <!-- POUR AJOUTER IMAGES COPIER ET AJOUTER DANS CSS nouveau .imageX-->
@@ -236,18 +343,18 @@ width: 90% !important;
 <hr>
 <!-- PRÉSENTATION-->
 
-<div class= "a" style="font-size:25px">Bonjour, que puis-je rechercher pour vous aujourd'hui?</h3>
-<i><h4 style="font-size:18px">(entrez l'âge, le diagnostic et/ou les buts de votre client pour obtenir des suggestions)</h4></i>
+<h4 class= "a">Bonjour, que puis-je rechercher pour vous aujourd'hui?</h4>
+<i><h5 class= "a">(entrez l'âge, le diagnostic et/ou les buts de votre client pour obtenir des suggestions)</h5></i>
 
 <!-- DARK MODE
-<div class="b" style="font-size: 10px"><button onclick="myFunction()">Toggle dark mode</button>
+<div class="a" style="font-size: 10px"><button onclick="myFunction()">Toggle dark mode</button>
 -->
 
 <!-- TABLEAU-->
 <!-- Padding = Espacement à l'extérieur du tableau-->
 
 <div style="padding: 30px;">
-<table id="dt-vertical-scroll" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+<table id="dt-vertical-scroll" class="table table-responsive table-hover table-bordered table-sm" cellspacing="0" width="100%">
   <thead>
       <tr>
         <th class="th-sm">Titre
@@ -276,7 +383,17 @@ width: 90% !important;
         <td>DIL, TSA, NrT</td>
         <td>Moteur, Emotionnel</td>
         <td>zzz</td>
-        <td>5</td>
+        <td> <!--1re ligne = Nom de l'activité-->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Infos</button>
+          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm">
+            <!--Ici le contenu-->
+          <div class="modal-content nosearch" style="font-size:18px">Voici la description de cette activité comme vous la voyez ici présente.
+          </div>
+          </div>
+          </div>
+        </td>
+
       </tr>
 
       <tr>
@@ -286,7 +403,16 @@ width: 90% !important;
         <td>DIL, TSA-V, TSA-Nv, NrT</td>
         <td>Communication, Cognitif, Moteur, Social</td>
         <td>zzz</td>
-        <td>5</td>
+        <td> <!--1re ligne = Nom de l'activité-->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">2</button>
+          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm">
+            <!--Ici le contenu-->
+          <div class="modal-content" style="font-size:18px">Voici la 2e description.
+          </div>
+          </div>
+          </div>
+        </td>
       </tr>
 
       <tr>
@@ -296,7 +422,7 @@ width: 90% !important;
         <td>DIL, TSA-V, TSA-Nv, NT</td>
         <td>Communication, Emotionnel, Social</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -306,7 +432,7 @@ width: 90% !important;
         <td>SM, NrT</td>
         <td>Emotionnel</td>
         <td>Expression émotionnelle</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -316,7 +442,7 @@ width: 90% !important;
         <td>DIL, TSA-V, NrT</td>
         <td>Cognitif, Emotionnal</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -326,7 +452,7 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V</td>
         <td>Cognitif, Emotionnal, Moteur, Musical</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -336,7 +462,8 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, NrT</td>
         <td>Cognitif, Musical</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
+
       </tr>
 
       <tr>
@@ -346,7 +473,7 @@ width: 90% !important;
         <td>DIL, TSA-V, SM, NrT</td>
         <td>Emotionnel, Social</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -356,7 +483,7 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, NrT</td>
         <td>Cognitif, Moteur, Emotionnel</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -366,7 +493,7 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, SM, NrT</td>
         <td>Emotionnel, Moteur</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -376,7 +503,7 @@ width: 90% !important;
         <td>DIL, TSA-V, NrT</td>
         <td>Communication, Cognitif, Musical</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -386,7 +513,7 @@ width: 90% !important;
         <td>DIL, DIP, TSA-V, TSA-Nv, NrT</td>
         <td>Communication, Cognitif, Musical</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -396,7 +523,7 @@ width: 90% !important;
         <td>DIL, TSA-V, NrT</td>
         <td>Communication, Cognitif, Emotionnel, Social</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -406,7 +533,7 @@ width: 90% !important;
         <td>SM, NrT</td>
         <td>Emotionnel, social</td>
         <td>Expression émotionnelle, relaxation</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -416,7 +543,7 @@ width: 90% !important;
         <td>SM, NrT</td>
         <td>Social</td>
         <td>Team bonding</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
       <tr>
@@ -426,7 +553,7 @@ width: 90% !important;
         <td>DIL, SM, NrT</td>
         <td>Emotionnel</td>
         <td>Expression émotionelle, relaxation</td>
-        <td>5</td>
+        <td>1</td>
       </tr>
 
 
@@ -445,7 +572,15 @@ width: 90% !important;
         <td>DIL</td>
         <td>Communication</td>
         <td>zzz</td>
-        <td>5</td>
+        <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Infos</button>
+          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content nosearch" style="font-size:18px">Voici la description de cette activité comme vous la voyez ici présente.
+          </div>
+          </div>
+          </div>
+        </td>
       </tr>
 
 FIN du COPIER COLLER-->
@@ -463,7 +598,7 @@ FIN du COPIER COLLER-->
     <a class="btn btn-warning mb-4" href="https://docs.google.com/spreadsheets/d/1JDEbgAhGD7LCzeF9r5q2OqIA0QB4P_XUqXO9fQsuNHU/edit?usp=sharing" role="button" target="_blank">Ajouter une suggestion</a>
   </div>
 
-<table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+<table class="table table-responsive table-striped table-bordered table-sm" cellspacing="0" width="100%">
     <!-- Table head -->
     <thead>
       <tr>
@@ -503,16 +638,7 @@ FIN du COPIER COLLER-->
 
 
 
-  <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- MDBootstrap Datatables  -->
-  <script type="text/javascript" src="js/addons/datatables2.min.js"></script>
+
 
 <!-- Your custom scripts (optional) -->
 <script type="text/javascript">
@@ -571,6 +697,21 @@ $(document).ready(function() {
   });
 });
 
+
+
+
+//DISABLE SEARCH IN MODAL POPUP
+$('#nosearch').DataTable({
+"search": {
+  "smart": false
+} // false to disable search (or any other option)
+});
+
+
+
+
+
+
   //Ajout donné Google sheet
     $.getJSON("https://spreadsheets.google.com/feeds/list/1JDEbgAhGD7LCzeF9r5q2OqIA0QB4P_XUqXO9fQsuNHU/od6/public/values?alt=json", function(data) {
 
@@ -613,6 +754,22 @@ $(document).ready(function() {
   }
 
 // Automatic Slideshow - change image every 4 seconds
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides2");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 20000);
+}
+
 var slideIndex = [1,1];
 var slideId = ["mySlides2"]
 showSlides(1, 0);
@@ -632,6 +789,8 @@ function showSlides(n, no) {
   }
   x[slideIndex[no]-1].style.display = "block";
 }
+
+
 
 </script>
 
