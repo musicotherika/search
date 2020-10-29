@@ -214,6 +214,7 @@ h6 {font-size:1.1rem;   text-align: justify;} /*1rem = 16px*/
   h6 {font-size:1.1rem;} /*1rem = 16px*/
 }
 
+/* Arrière-plan quan on clique sur un button modal (Il bug sinon sur IOS) */
 .modal-backdrop {
     /* bug fix - no overlay */
     display: none;
@@ -433,7 +434,7 @@ width: 90% !important;
         <td>
           <!-- Button Infos Changer le numéro du datarget et correspondre au id-->
           <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#infos1">Détails</button>
-          <div class="modal fade" id="infos1" role="dialog" style="position:absolute">
+          <div class="modal fade" id="infos1" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
               <!-- Contenu-->
               <div class="modal-content">
