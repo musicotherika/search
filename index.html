@@ -214,15 +214,15 @@ h6 {font-size:1.1rem;   text-align: justify;} /*1rem = 16px*/
   h6 {font-size:1.1rem;} /*1rem = 16px*/
 }
 
-/* Arrière-plan quan on clique sur un button modal (Il bug sinon sur IOS) */
 
-.modal-backdrop {
-    z-index: 1040 !important;
-}
-.modal-content {
-    margin: 2px auto;
-    z-index: 1100 !important;
-}
+/* Arrière-plan quan on clique sur un button modal (Il bug sinon sur IOS) */
+    @media only screen and (max-width: 768px) {
+      /* For mobile phones: */
+      [class*="modal-backdrop"] {
+        display: none;
+      }
+    }
+
 
 .image2 {
   animation: mymove 20s, fadeIn 1s;
@@ -438,7 +438,7 @@ width: 90% !important;
         <td>
           <!-- Button Infos Changer le numéro du datarget et correspondre au id-->
           <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#infos1">Détails</button>
-          <div class="modal fade" id="infos1" role="dialog">
+          <div class="modal fade " id="infos1" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
               <!-- Contenu-->
               <div class="modal-content">
