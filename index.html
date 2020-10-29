@@ -192,10 +192,10 @@ h5 {font-size:1.5rem;} /*1rem = 16px*/
 
 /* FONT SIZE POUR Contenu des Modal Détails... */
 
-h6 {font-size:1.2rem;} /*1rem = 16px*/
+h6 {font-size:1.1rem;   text-align: justify;} /*1rem = 16px*/
 /* Xsmall devices (small phones, 200px and up) */
 @media (min-width: 200px) {
-  h6 {font-size:0.7rem;} /*1rem = 16px*/
+  h6 {font-size:0.75rem;} /*1rem = 16px*/
 }
 /* Small devices (landscape phones, 544px and up) */
 @media (min-width: 544px) {
@@ -211,9 +211,13 @@ h6 {font-size:1.2rem;} /*1rem = 16px*/
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 1300px) {
-  h6 {font-size:1.2rem;} /*1rem = 16px*/
+  h6 {font-size:1.1rem;} /*1rem = 16px*/
 }
 
+.modal-backdrop {
+    /* bug fix - no overlay */
+    display: none;
+}
 
 .image2 {
   animation: mymove 20s, fadeIn 1s;
@@ -469,9 +473,10 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Chef d'orchestre ╿</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
-                  <p>Un petit bâton (ou maillet "retourné") est offert au client qui est désigné chef d'orchestre, et celui-ci doit diriger les autres client qui auront préalablement choisi leur instrument de musicien de l'orchestre (dépendamment des défis du client, la MT peut proposer des instruments plus ou moins exhaustifs). Le plus souvent, le bâton levé dans les airs signifie "plus fort", et lorsqu'il descend vers le sol cela signifie "plus faible", mais c'est au MT de créer ses propres codes, et d'ajuster la complexité de ces codes aux capacités cognitives du client (on pourra par exemple décider que si le bâton bouge vite, il faut jouer plus vite, et inversement, ou que lorsqu'il touche le sol, il faut arrêter de jouer, ou enfin, le bâton pourrait donner un tempo précis à suivre en battant la mesure comme un vrai chef d'orchestre le ferait).</p>
-                  </div>
+                  <h6 class="modal-body">
+                  <p>Un petit bâton (ou maillet "retourné") est offert au client qui est désigné chef d'orchestre, et celui-ci doit diriger les autres client qui auront préalablement choisi leur instrument de musicien de l'orchestre (dépendamment des défis du client, la MT peut proposer des instruments plus ou moins exhaustifs). </p>
+                  <p>Le plus souvent, le bâton levé dans les airs signifie "plus fort", et lorsqu'il descend vers le sol cela signifie "plus faible", mais c'est au MT de créer ses propres codes, et d'ajuster la complexité de ces codes aux capacités cognitives du client (on pourra par exemple décider que si le bâton bouge vite, il faut jouer plus vite, et inversement, ou que lorsqu'il touche le sol, il faut arrêter de jouer, ou enfin, le bâton pourrait donner un tempo précis à suivre en battant la mesure comme un vrai chef d'orchestre le ferait).</p>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -498,9 +503,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Dialogue percussif 🥁</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                  <h6 class="modal-body">
                   <p>Une percussion chacun, et l'on s'échange des rythmes improvisés, au gré de l'imagination et de l'humeur. Peut être aussi un simple jeu de mimétisme dépendamment des habiletés du client. </p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -528,9 +533,11 @@ width: 90% !important;
                 <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
                 <h4 class="modal-title">Black Out Poetry 📝</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
-                  <p>La MT distribue aléatoirement une page de livre déchirée à chaque client, et ce dernier a pour consigne d'entourer dans la page les premiers mots qui accrochent son regard (entre 3 et 8). Le client est ensuite invité à recouvrir le reste de la page en y dessinant, peignant, ou simplement en coloriant d'encre noir, le but étant de faire ressortir les mots choisis. Le choix des mots, et éventuellement le choix de l'art réalisé est ensuite exploré avec la MT, ainsi qu'avec le groupe le cas échéant.</p>
-                  </div>
+                  <h6 class="modal-body">
+                  <p>La MT distribue aléatoirement une page de livre déchirée à chaque client, et ce dernier a pour consigne d'entourer dans la page les premiers mots qui accrochent son regard (entre 3 et 8). </p>
+                  <p>Le client est ensuite invité à recouvrir le reste de la page en y dessinant, peignant, ou simplement en coloriant d'encre noir, le but étant de faire ressortir les mots choisis. </p>
+                  <p>Le choix des mots, et éventuellement le choix de l'art réalisé est ensuite exploré avec la MT, ainsi qu'avec le groupe le cas échéant.</p>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -557,9 +564,10 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Conte sonorisé 📖</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
-                  <p>Le MT choisit un conte (de préférence pas trop long, et évoquant des personnages ou éléments de façon réccurente), et le présentant au client, lui demande de choisir un instrument de musique pour chacun des personnages ou éléments rémanents. Le MT lit ensuite le conte au client, et chaque fois que ce dernier entend le nom d'un personnage ou élément, il doit jouer l'instrument correspondant. Un maximum de 5 élément est conseillé.</p>
-                  </div>
+                <h6 class="modal-body">
+                  <p>Le MT choisit un conte (de préférence pas trop long, et évoquant des personnages ou éléments de façon réccurente), et le présentant au client, lui demande de choisir un instrument de musique pour chacun des personnages ou éléments rémanents. </p>
+                  <p>Le MT lit ensuite le conte au client, et chaque fois que ce dernier entend le nom d'un personnage ou élément, il doit jouer l'instrument correspondant. Un maximum de 5 élément est conseillé.</p>
+                </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -586,9 +594,11 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Apprentissage pattern couleur 🎨</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
-                    <p>Un instrument "coloré" est donné au client (xylo, boomwhackers, cloches...), et un pattern simple d'enchainement de notes lui est enseigné (par exemple : C, F, C, G). La MT peut modéliser, chanter les notes et leur nom ou simplement le nom des couleurs associées. Lorsque le client semble avoir retenu le pattern, la MT n'ayant plus besoin de modéliser peut prendre la guitare, jouer les accords correspondant à chaque note, et y ajouter une chanson (J'utilise souvent "Le lion s'endort ce soir" avec les enfants pour son "wimboweh" qui se répète et leur plaît beaucoup, qui d'ailleurs n'est autre qu'une déformation de la phrase "uyimbube", qui signifie "tu es un lion" en Zoulou ; la chanson originale s'appelle Mbube ("Lion") et fut composée par Solomon Linda en 1939, qui n'en a jamais touché les droits d'auteur et est mort dans la pauvreté... Mbube a même donné son nom à un style de musique africaine a cappella)</p>
-                  </div>
+                  <h6 class="modal-body">
+                    <p>Un instrument "coloré" est donné au client (xylo, boomwhackers, cloches...), et un pattern simple d'enchainement de notes lui est enseigné (par exemple : C, F, C, G). La MT peut modéliser, chanter les notes et leur nom ou simplement le nom des couleurs associées. </p>
+                    <p>Lorsque le client semble avoir retenu le pattern, la MT n'ayant plus besoin de modéliser peut prendre la guitare, jouer les accords correspondant à chaque note, et y ajouter une chanson </p>
+                    <p>(J'utilise souvent "Le lion s'endort ce soir" avec les enfants pour son "wimboweh" qui se répète et leur plaît beaucoup, qui d'ailleurs n'est autre qu'une déformation de la phrase "uyimbube", qui signifie "tu es un lion" en Zoulou ; la chanson originale s'appelle Mbube ("Lion") et fut composée par Solomon Linda en 1939, qui n'en a jamais touché les droits d'auteur et est mort dans la pauvreté... Mbube a même donné son nom à un style de musique africaine a cappella)</p>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -615,9 +625,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Déchiffrage partition couleur 🎼</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>Pas grand chose à expliquer : une partition, des notes colorées, un instrument coloré ou piano avec stickers de couleur, et c'est parti !</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -644,9 +654,10 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Emotions au piano 🎹</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
-                    <p>Cette activité possède plusieurs variantes dépendamment du client : il peut s'agir de simplement demander au client d'improviser une émotion en particulier au piano ("Comment sonnerait la colère ?"), avec ou sans support visuel (pictogramme représentant l'émotion), ou bien que le MT improvise lui-même une émotion au piano et demande au client ce qu'il pense que le MT a voulu exprimer (il peut être aidant de donner le choix au client entre deux émotions, avec support visuel). Bien entendu, l'interprétation des émotions au piano est un exercice très subjectif, et c'est à prendre en considération. Un cluster sur un clavier peut autant signifier colère pour quelqu'un qu'enthousiasme pour quelqu'un d'autre.</p>
-                  </div>
+                <h6 class="modal-body">
+                    <p>Cette activité possède plusieurs variantes dépendamment du client : il peut s'agir de simplement demander au client d'improviser une émotion en particulier au piano ("Comment sonnerait la colère ?"), avec ou sans support visuel (pictogramme représentant l'émotion), ou bien que le MT improvise lui-même une émotion au piano et demande au client ce qu'il pense que le MT a voulu exprimer (il peut être aidant de donner le choix au client entre deux émotions, avec support visuel). </p>
+                    <p>Bien entendu, l'interprétation des émotions au piano est un exercice très subjectif, et c'est à prendre en considération. Un cluster sur un clavier peut autant signifier colère pour quelqu'un qu'enthousiasme pour quelqu'un d'autre.</p>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -673,9 +684,10 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Stop n'Go 🛑</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
-                    <p>De la musique enregistrée (ou jouée live) est diffusée dans la salle. Les clients sont alors invités à bouger, marcher ou danser au rythme de cette musique en se déplaçant dans la salle. Dès que la musique s'arrête (contrôlée par la MT) les clients doivent s'immobiliser. Ils peuvent recommencer à bouger seulement lorsque la musique reprend. Petit ajout : il peut être intéressant de demander aux clients de nommer ce qu'ils sont en train de faire lorsqu'ils sont immobilisés ("Quelle est cette position ? Es-tu en train de skier ? En train d'imiter une chaise ? En train de faire numéro 2 en forêt ?")</p>
-                  </div>
+                <h6 class="modal-body">
+                    <p>De la musique enregistrée (ou jouée live) est diffusée dans la salle. Les clients sont alors invités à bouger, marcher ou danser au rythme de cette musique en se déplaçant dans la salle. Dès que la musique s'arrête (contrôlée par la MT) les clients doivent s'immobiliser. </p>
+                    <p>Ils peuvent recommencer à bouger seulement lorsque la musique reprend. Petit ajout : il peut être intéressant de demander aux clients de nommer ce qu'ils sont en train de faire lorsqu'ils sont immobilisés ("Quelle est cette position ? Es-tu en train de skier ? En train d'imiter une chaise ? En train de faire numéro 2 en forêt ?")</p>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -702,9 +714,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Mouvements en musique 🕺💃</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -731,9 +743,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Quel instrument entend-on? 🎧</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -760,9 +772,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Chanson à trous 🕳</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -789,9 +801,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Echanges verbaux avec instrument 🗣</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -818,9 +830,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Mantra au piano 🎹</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -847,9 +859,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Quizz musical pour prénoms ❓</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -876,9 +888,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">Imagerie en musique 🖼</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -905,9 +917,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">111111</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -934,9 +946,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">222222</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -963,9 +975,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">3333333</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -992,9 +1004,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">4444444</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1021,9 +1033,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">555555</h4>
                 </div>
-                <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                   <p>TEXTEICI</p>
-                </div>
+                </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1050,9 +1062,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">666666</h4>
                 </div>
-                <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                   <p>TEXTEICI</p>
-                </div>
+                </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1079,9 +1091,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">7777777</h4>
                 </div>
-                <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                   <p>TEXTEICI</p>
-                </div>
+                </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1108,9 +1120,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">888888</h4>
                 </div>
-                <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                   <p>TEXTEICI</p>
-                </div>
+                </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1137,9 +1149,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">222222</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1166,9 +1178,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">3333333</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1195,9 +1207,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">4444444</h4>
                 </div>
-                  <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                     <p>TEXTEICI</p>
-                  </div>
+                  </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1224,9 +1236,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">555555</h4>
                 </div>
-                <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                   <p>TEXTEICI</p>
-                </div>
+                </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
@@ -1253,9 +1265,9 @@ width: 90% !important;
                 <div class="modal-header">
                 <h4 class="modal-title">gloubiboulga</h4>
                 </div>
-                <div class="modal-body" style="font-size:18px">
+                <h6 class="modal-body">
                   <p>TEXTEICI</p>
-                </div>
+                </h6>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
                     </div>
