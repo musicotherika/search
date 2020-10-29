@@ -215,9 +215,13 @@ h6 {font-size:1.1rem;   text-align: justify;} /*1rem = 16px*/
 }
 
 /* Arrière-plan quan on clique sur un button modal (Il bug sinon sur IOS) */
+
 .modal-backdrop {
-    /* bug fix - no overlay */
-    display: none;
+    z-index: 1040 !important;
+}
+.modal-content {
+    margin: 2px auto;
+    z-index: 1100 !important;
 }
 
 .image2 {
