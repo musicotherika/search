@@ -190,6 +190,31 @@ h5 {font-size:1.5rem;} /*1rem = 16px*/
 }
 
 
+/* FONT SIZE POUR Contenu des Modal Détails... */
+
+h6 {font-size:1.2rem;} /*1rem = 16px*/
+/* Xsmall devices (small phones, 200px and up) */
+@media (min-width: 200px) {
+  h6 {font-size:0.7rem;} /*1rem = 16px*/
+}
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  h6 {font-size:0.8rem;} /*1rem = 16px*/
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h6 {font-size:0.9rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 920px) {
+  h6 {font-size:1rem;} /*1rem = 16px*/
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1300px) {
+  h6 {font-size:1.2rem;} /*1rem = 16px*/
+}
+
+
 .image2 {
   animation: mymove 20s, fadeIn 1s;
   background-image: url("img/guitar.jpg");
@@ -412,9 +437,10 @@ width: 90% !important;
                   <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>-->
                 <h4 class="modal-title">Floor is Lava with music 🌋</h4>
                 </div>
-                  <div class="modal-body" style="font-size:15px">
-                  <p>Des chaises (ou autres surfaces sécuritaires à escalader) sont placées de ça de là dans la salle. De la musique enregistrée est jouée dans la salle (ou jouée et chantée par le MT, avec un instrument transportable). Lorsque la musique s'arrête, tout le monde doit trouver de quoi se percher sous peine de toucher le sol brûlant (oui, on aurait aussi pu appeler cette activité 'Chaises musicales' mais c'était plus quétenne.)</p>
-                  </div>
+                  <h6 class="modal-body">
+                  <p>Des chaises (ou autres surfaces sécuritaires à escalader) sont placées de ça de là dans la salle. De la musique enregistrée est jouée dans la salle (ou jouée et chantée par le MT, avec un instrument transportable).</p>
+                  <p>Lorsque la musique s'arrête, tout le monde doit trouver de quoi se percher sous peine de toucher le sol brûlant (oui, on aurait aussi pu appeler cette activité 'Chaises musicales' mais c'était plus quétenne.)</p>
+                </h6>
                     <!-- Si on veut un bas avec un bouton fermer-->
                     <div class="modal-footer">
                     <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Fermer</button>
