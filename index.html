@@ -216,7 +216,7 @@ h6 {font-size:1.1rem;   text-align: justify;} /*1rem = 16px*/
 
 
 /* Arrière-plan quan on clique sur un button modal (Il bug sinon sur IOS) */
-    @media only screen and (max-width: 768px) {
+    @supports (-webkit-touch-callout: none) {
       /* For mobile phones: */
       [class*="modal-backdrop"] {
         display: none;
