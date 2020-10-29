@@ -42,6 +42,23 @@ body {
   background-color: #f9f2ec;
   padding: 0px;
   color: black;
+  width: 100%;
+  max-width: 100%;
+  will-change: position;
+}
+/* Prevent Bootstrap 4.x iOS issue where user
+// scrolls the body behind the modal when body height > 100vh */
+
+body.modal-open {
+    position: fixed;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+.modal-body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .dark-mode {
@@ -405,7 +422,7 @@ width: 90% !important;
           <!-- Button Infos Changer le numéro du datarget et correspondre au id-->
           <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#infos1">Détails</button>
           <div class="modal fade" id="infos1" role="dialog">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
               <!-- Contenu-->
               <div class="modal-content">
                 <div class="modal-header">
