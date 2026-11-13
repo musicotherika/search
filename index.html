@@ -637,6 +637,46 @@ let mtoolSortDirection = 1;
       return filters.every(([field, selected]) => !selected ||
         mtoolValue(row, field).split(/[;,\n]/).map(v => v.trim()).includes(selected));
     });
+    if (mtoolSortField) {
+  filtered.sort((a, b) => {
+    const va = mtoolValue(a, mtoolSortField);
+    const vb = mtoolValue(b, mtoolSortField);
+
+    if (mtoolSortField === 'Durée (min)') {
+      return (parseFloat(va) || 0 - (parseFloat(vb) || 0)) * mtoolSortDirection;
+    }
+
+    return va.localeCompare(vb, 'fr', {
+      numeric: true,
+      sensitivity: 'base'
+    }) * mtoolSortDirection;
+  });
+  document.querySelectorAll('#mtool-table thead th').forEach((th, index) => {
+  if (index === 10) return;
+
+  th.style.cursor = 'pointer';
+  th.title = 'Cliquer pour trier';
+
+  th.addEventListener('click', () => {
+    const fields = [
+      'Titre', 'Configuration', 'Buts', 'Sous-buts',
+      "Type d'expérience", 'Moment de séance', 'Activation',
+      'Matériel', 'Durée (min)', 'Statut'
+    ];
+
+    const field = fields[index];
+
+    if (mtoolSortField === field) {
+      mtoolSortDirection *= -1;
+    } else {
+      mtoolSortField = field;
+      mtoolSortDirection = 1;
+    }
+
+    mtoolRenderRows();
+  });
+});    
+}
 
     const tbody = document.getElementById('mtool-rows');
     tbody.innerHTML = filtered.map(row => {
