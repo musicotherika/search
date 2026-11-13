@@ -337,6 +337,26 @@ width: 90% !important;
 }
 
 }
+  /* Couleurs pastel des boutons Détails */
+
+.mtool-detail-button {
+  color: #514b50 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 500;
+  box-shadow: none !important;
+}
+
+.mtool-detail-button:hover {
+  filter: brightness(0.96);
+}
+
+.mtool-detail-button.pastel-1 { background-color: #f4c6d7 !important; }
+.mtool-detail-button.pastel-2 { background-color: #f7d3b5 !important; }
+.mtool-detail-button.pastel-3 { background-color: #f5e6a8 !important; }
+.mtool-detail-button.pastel-4 { background-color: #cce3c5 !important; }
+.mtool-detail-button.pastel-5 { background-color: #c5deef !important; }
+.mtool-detail-button.pastel-6 { background-color: #d9cbed !important; }
 </style>
 </head>
 <body>
@@ -639,6 +659,7 @@ $(document).ready(function() {
     const tbody = document.getElementById('mtool-rows');
     tbody.innerHTML = filtered.map(row => {
       const originalIndex = mtoolInterventions.indexOf(row);
+      const pastelClass = 'pastel-' + (filtered.indexOf(row) % 6 + 1);
       return `<tr>
         <td>${mtoolEscape(mtoolValue(row, 'Titre'))}</td>
         <td>${mtoolEscape(mtoolValue(row, 'Configuration'))}</td>
@@ -650,7 +671,7 @@ $(document).ready(function() {
         <td>${mtoolEscape(mtoolValue(row, 'Matériel'))}</td>
         <td>${mtoolEscape(mtoolValue(row, 'Durée (min)'))}</td>
         <td>${mtoolEscape(mtoolValue(row, 'Statut'))}</td>
-        <td><button type="button" class="btn btn-sm btn-info mtool-detail-button" data-index="${originalIndex}">Détails</button></td>
+        <td><button type="button" class="btn btn-sm mtool-detail-button ${pastelClass}" data-index="${originalIndex}">Détails</button></td>
       </tr>`;
     }).join('');
     document.getElementById('mtool-count').textContent = `${filtered.length} intervention${filtered.length > 1 ? 's' : ''} affichée${filtered.length > 1 ? 's' : ''} sur ${mtoolInterventions.length}`;
