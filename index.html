@@ -557,8 +557,6 @@ $(document).ready(function() {
   // MTOOL OFFICIEL : source de données Google Sheets publiée en CSV
   const MTOOL_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQsGuW2ZdVmJzAf-FY2o7JcKruvdYexhzK1dMhTZejZBnnEq2Z46FN52dLS89dHHg/pub?gid=365610982&single=true&output=csv';
   let mtoolInterventions = [];
-  let mtoolSortField = '';
-let mtoolSortDirection = 1;
 
   const mtoolFields = {
     titre: 'Titre',
@@ -638,24 +636,6 @@ let mtoolSortDirection = 1;
     mtoolValue(row, field).split(/[;,\n]/).map(v => v.trim()).includes(selected));
 });
 
-// TRI DES COLONNES
-if (mtoolSortField) {
-  filtered.sort((a, b) => {
-    const va = mtoolValue(a, mtoolSortField);
-    const vb = mtoolValue(b, mtoolSortField);
-
-    if (mtoolSortField === 'Durée (min)') {
-      return ((parseFloat(va.replace(',', '.')) || 0) -
-        (parseFloat(vb.replace(',', '.')) || 0)) * mtoolSortDirection;
-    }
-
-    return va.localeCompare(vb, 'fr', {
-      numeric: true,
-      sensitivity: 'base'
-    }) * mtoolSortDirection;
-  });
-}
-
     const tbody = document.getElementById('mtool-rows');
     tbody.innerHTML = filtered.map(row => {
       const originalIndex = mtoolInterventions.indexOf(row);
@@ -675,39 +655,7 @@ if (mtoolSortField) {
     }).join('');
     document.getElementById('mtool-count').textContent = `${filtered.length} intervention${filtered.length > 1 ? 's' : ''} affichée${filtered.length > 1 ? 's' : ''} sur ${mtoolInterventions.length}`;
   }
-// TRI AU CLIC SUR LES TITRES DES COLONNES
-const mtoolSortColumns = [
-  'Titre',
-  'Configuration',
-  'Buts',
-  'Sous-buts',
-  "Type d'expérience",
-  'Moment de séance',
-  'Activation',
-  'Matériel',
-  'Durée (min)',
-  'Statut'
-];
 
-document.querySelectorAll('#mtool-table thead th').forEach((th, index) => {
-  if (index >= mtoolSortColumns.length) return;
-
-  th.style.cursor = 'pointer';
-  th.title = 'Cliquer pour trier';
-
-  th.addEventListener('click', () => {
-    const field = mtoolSortColumns[index];
-
-    if (mtoolSortField === field) {
-      mtoolSortDirection *= -1;
-    } else {
-      mtoolSortField = field;
-      mtoolSortDirection = 1;
-    }
-
-    mtoolRenderRows();
-  });
-});
   function mtoolShowDetails(index) {
     const row = mtoolInterventions[index];
     if (!row) return;
