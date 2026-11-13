@@ -554,22 +554,6 @@ $(document).ready(function() {
   });
 });
 
-
-  // Ancienne feuille de suggestions : conservée pour ne pas supprimer cette fonctionnalité.
-  $.getJSON("https://spreadsheets.google.com/feeds/list/1JDEbgAhGD7LCzeF9r5q2OqIA0QB4P_XUqXO9fQsuNHU/od6/public/values?alt=json", function(data) {
-    const suggestions = data.feed.entry || [];
-    suggestions.forEach(function(entry) {
-      const fields = ['titre','configuration','age','diagnostic','buts','objectifs','note'];
-      const cells = fields.map(function(field) {
-        const value = entry['gsx$' + field] && entry['gsx$' + field]['$t'] ? entry['gsx$' + field]['$t'] : '';
-        return '<td>' + mtoolEscape(value) + '</td>';
-      });
-      document.getElementById('demo').insertAdjacentHTML('beforeend', '<tr>' + cells.join('') + '</tr>');
-    });
-  }).fail(function() {
-    console.warn('La feuille historique de suggestions n’a pas pu être chargée.');
-  });
-
   // MTOOL OFFICIEL : source de données Google Sheets publiée en CSV
   const MTOOL_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQsGuW2ZdVmJzAf-FY2o7JcKruvdYexhzK1dMhTZejZBnnEq2Z46FN52dLS89dHHg/pub?gid=365610982&single=true&output=csv';
   let mtoolInterventions = [];
