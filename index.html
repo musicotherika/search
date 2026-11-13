@@ -677,7 +677,39 @@ const tbody = document.getElementById('mtool-rows');
     }).join('');
     document.getElementById('mtool-count').textContent = `${filtered.length} intervention${filtered.length > 1 ? 's' : ''} affichée${filtered.length > 1 ? 's' : ''} sur ${mtoolInterventions.length}`;
   }
+// TRI AU CLIC SUR LES TITRES DES COLONNES
+const mtoolSortColumns = [
+  'Titre',
+  'Configuration',
+  'Buts',
+  'Sous-buts',
+  "Type d'expérience",
+  'Moment de séance',
+  'Activation',
+  'Matériel',
+  'Durée (min)',
+  'Statut'
+];
 
+document.querySelectorAll('#mtool-table thead th').forEach((th, index) => {
+  if (index >= mtoolSortColumns.length) return;
+
+  th.style.cursor = 'pointer';
+  th.title = 'Cliquer pour trier';
+
+  th.addEventListener('click', () => {
+    const field = mtoolSortColumns[index];
+
+    if (mtoolSortField === field) {
+      mtoolSortDirection *= -1;
+    } else {
+      mtoolSortField = field;
+      mtoolSortDirection = 1;
+    }
+
+    mtoolRenderRows();
+  });
+});
   function mtoolShowDetails(index) {
     const row = mtoolInterventions[index];
     if (!row) return;
