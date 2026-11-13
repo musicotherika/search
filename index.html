@@ -557,6 +557,8 @@ $(document).ready(function() {
   // MTOOL OFFICIEL : source de données Google Sheets publiée en CSV
   const MTOOL_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQsGuW2ZdVmJzAf-FY2o7JcKruvdYexhzK1dMhTZejZBnnEq2Z46FN52dLS89dHHg/pub?gid=365610982&single=true&output=csv';
   let mtoolInterventions = [];
+  let mtoolSortField = '';
+let mtoolSortDirection = 1;
 
   const mtoolFields = {
     titre: 'Titre',
