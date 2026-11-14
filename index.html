@@ -363,8 +363,30 @@ width: 90% !important;
   user-select: none;
   white-space: nowrap;
 }
-.mtool-sortable:hover {
-  background-color: #efe6dd;
+/* Tableau : en-tête lilas doux et lignes alternées */
+#mtool-table thead th {
+  background-color: #e4d9ee;
+  color: #3b3338;
+  font-weight: 700;
+  border-color: #d3c6e0;
+  border-bottom: 2px solid #c9b9db;
+  vertical-align: middle;
+}
+#mtool-table thead th.mtool-sortable:hover {
+  background-color: #d9cce8;
+}
+#mtool-table td {
+  border-color: #e8dccf;
+  vertical-align: middle;
+}
+#mtool-rows tr:nth-child(odd) td {
+  background-color: #fffaf6;
+}
+#mtool-rows tr:nth-child(even) td {
+  background-color: #f3e8de;
+}
+#mtool-rows tr:hover td {
+  background-color: #eee4f5;
 }
 .mtool-sortable:focus {
   outline: 2px solid #8a7f88;
@@ -380,11 +402,11 @@ width: 90% !important;
 }
 
 /* Texte d'accueil : plus discret */
-.accueil-titre { font-size: 1.3rem; font-weight: 500; }
-.accueil-sous-titre { font-size: 0.95rem; color: #6b6168; }
+.accueil-titre { font-size: 1.05rem; font-weight: 500; }
+.accueil-sous-titre { font-size: 0.8rem; color: #736d72; }
 @media (max-width: 543px) {
-  .accueil-titre { font-size: 1.1rem; }
-  .accueil-sous-titre { font-size: 0.85rem; }
+  .accueil-titre { font-size: 0.95rem; }
+  .accueil-sous-titre { font-size: 0.75rem; }
 }
 
 /* Menus déroulants et recherche : étiquettes en gras, même police partout */
