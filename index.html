@@ -378,6 +378,28 @@ width: 90% !important;
 .mtool-sortable[aria-sort="descending"] .mtool-arrow {
   color: #333333;
 }
+
+/* Texte d'accueil : plus discret */
+.accueil-titre { font-size: 1.3rem; font-weight: 500; }
+.accueil-sous-titre { font-size: 0.95rem; color: #6b6168; }
+@media (max-width: 543px) {
+  .accueil-titre { font-size: 1.1rem; }
+  .accueil-sous-titre { font-size: 0.85rem; }
+}
+
+/* Menus déroulants et recherche : étiquettes en gras, même police partout */
+#mtool-filters label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #3b3338;
+  margin-bottom: 0.25rem;
+}
+#mtool-filters select,
+#mtool-search {
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.author { font-family: inherit; }
 </style>
 </head>
 <body>
@@ -395,7 +417,7 @@ width: 90% !important;
     <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
+    <h2>Une banque d'idées d'interventions pour musicothérapeutes</h2>
   </div>
 </div>
 
@@ -404,7 +426,7 @@ width: 90% !important;
     <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
+    <h2>Une banque d'idées d'interventions pour musicothérapeutes</h2>
   </div>
 </div>
 
@@ -413,7 +435,7 @@ width: 90% !important;
     <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
+    <h2>Une banque d'idées d'interventions pour musicothérapeutes</h2>
   </div>
 </div>
 
@@ -422,7 +444,7 @@ width: 90% !important;
     <h1>MTool</h1>
   </div>
   <div class="text2">
-    <h2>Un outil de classement d'interventions pour les musicothérapeutes</h2>
+    <h2>Une banque d'idées d'interventions pour musicothérapeutes</h2>
   </div>
 </div>
 <!-- POUR AJOUTER IMAGES COPIER ET AJOUTER DANS CSS nouveau .imageX-->
@@ -435,8 +457,8 @@ width: 90% !important;
 <hr>
 <!-- PRÉSENTATION-->
 <main>
-<h4 class= "a animated fadeInDown slower delay-1s">Bonjour, que puis-je rechercher pour vous aujourd'hui?</h4>
-<i><h5 class= "a animated fadeInDown delay-2s">(filtrez par but, type d'expérience ou moment de séance, ou tapez un mot-clé pour trouver des idées d'interventions)</h5></i>
+<h4 class= "a accueil-titre animated fadeInDown slower delay-1s">Bonjour, que puis-je rechercher pour vous aujourd'hui?</h4>
+<i><h5 class= "a accueil-sous-titre animated fadeInDown delay-2s">(filtrez par but, type d'expérience ou moment de séance, ou tapez un mot-clé pour trouver des idées d'interventions)</h5></i>
 
 <!-- DARK MODE
 <div class="a" style="font-size: 10px"><button onclick="myFunction()">Toggle dark mode</button>
