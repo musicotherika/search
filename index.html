@@ -422,6 +422,29 @@ width: 90% !important;
   font-size: 0.95rem;
 }
 .author { font-family: inherit; }
+
+/* Boutons du bas de page : même palette pastel que les boutons Détails */
+.mtool-pastel-button {
+  color: #514b50 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 500;
+  box-shadow: none !important;
+}
+.mtool-pastel-button:hover {
+  color: #514b50 !important;
+  filter: brightness(0.96);
+}
+.mtool-pastel-green { background-color: #cce3c5 !important; }
+.mtool-pastel-peach { background-color: #f7d3b5 !important; }
+.mtool-pastel-lilac { background-color: #d9cbed !important; }
+
+/* Phrase d'accueil sans italique, texte d'aide de la recherche plus clair */
+.accueil-sous-titre { font-style: normal; }
+#mtool-search::placeholder {
+  color: #9b939a;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -480,7 +503,7 @@ width: 90% !important;
 <!-- PRÉSENTATION-->
 <main>
 <h4 class= "a accueil-titre animated fadeInDown slower delay-1s">Bonjour, que puis-je rechercher pour vous aujourd'hui?</h4>
-<i><h5 class= "a accueil-sous-titre animated fadeInDown delay-2s">(filtrez par but, type d'expérience ou moment de séance, ou tapez un mot-clé pour trouver des idées d'interventions)</h5></i>
+<h5 class= "a accueil-sous-titre animated fadeInDown delay-2s">(filtrez par but, type d'expérience ou moment de séance, ou tapez un mot-clé pour trouver des idées d'interventions)</h5>
 
 <!-- DARK MODE
 <div class="a" style="font-size: 10px"><button onclick="myFunction()">Toggle dark mode</button>
@@ -490,19 +513,18 @@ width: 90% !important;
 <!-- Padding = Espacement à l'extérieur du tableau-->
 
 <div class="container-fluid" style="padding: 20px 30px;">
-  <div class="row mb-3">
-    <div class="col-md-12">
+  <div class="row mb-3 justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
       <input type="search" id="mtool-search" class="form-control" placeholder="Rechercher une intervention, un objectif, un instrument..." aria-label="Rechercher dans les interventions">
     </div>
   </div>
-  <div id="mtool-filters" class="row mb-3">
+  <div id="mtool-filters" class="row mb-3 justify-content-center">
     <div class="col-md-4 col-lg-3 mb-2"><label for="filter-buts">Buts</label><select id="filter-buts" class="form-control"><option value="">Tous les buts</option></select></div>
     <div class="col-md-4 col-lg-3 mb-2"><label for="filter-sous-buts">Sous-buts</label><select id="filter-sous-buts" class="form-control"><option value="">Tous les sous-buts</option></select></div>
     <div class="col-md-4 col-lg-3 mb-2"><label for="filter-type">Type d'expérience</label><select id="filter-type" class="form-control"><option value="">Tous les types</option></select></div>
     <div class="col-md-4 col-lg-3 mb-2"><label for="filter-moment">Moment de séance</label><select id="filter-moment" class="form-control"><option value="">Tous les moments</option></select></div>
     <div class="col-md-4 col-lg-3 mb-2"><label for="filter-activation">Activation</label><select id="filter-activation" class="form-control"><option value="">Toutes les activations</option></select></div>
     <div class="col-md-4 col-lg-3 mb-2"><label for="filter-configuration">Configuration</label><select id="filter-configuration" class="form-control"><option value="">Toutes les configurations</option></select></div>
-    <div class="col-md-4 col-lg-3 mb-2"><label for="filter-statut">Statut</label><select id="filter-statut" class="form-control"><option value="">Tous les statuts</option></select></div>
   </div>
   <p id="mtool-count" class="text-muted" aria-live="polite">Chargement des interventions...</p>
   <div class="table-responsive">
@@ -532,7 +554,7 @@ width: 90% !important;
     <div class="modal-content">
       <div class="modal-header"><h5 class="modal-title" id="mtool-detail-title">Détails de l'intervention</h5><button type="button" class="close" data-dismiss="modal" aria-label="Fermer"><span aria-hidden="true">&times;</span></button></div>
       <div class="modal-body" id="mtool-detail-body"></div>
-      <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button></div>
+      <div class="modal-footer"><button type="button" class="btn mtool-pastel-button mtool-pastel-lilac" data-dismiss="modal">Fermer</button></div>
     </div>
   </div>
 </div>
@@ -542,14 +564,14 @@ width: 90% !important;
 <div style="padding: 30px;">
   <div class="container text-center my-4">
     <p>Une idée d'intervention à partager ? Elle sera relue avant d'être ajoutée à la base.</p>
-    <a class="btn btn-dark-green mb-4" href="https://forms.gle/buB3UYGDNBy4qBcm9" role="button" target="_blank" rel="noopener">Ajouter une suggestion</a>
+    <a class="btn mtool-pastel-button mtool-pastel-green mb-4" href="https://forms.gle/buB3UYGDNBy4qBcm9" role="button" target="_blank" rel="noopener">Ajouter une suggestion</a>
   </div>
 </div>
 </main>
 <!-- FOOTER -->
 <footer>
   <div class="container text-center my-4">
-  <a href="#" id="mailbutton" class="btn btn-amber">Courrielez-moi ! @</a>
+  <a href="#" id="mailbutton" class="btn mtool-pastel-button mtool-pastel-peach">Courrielez-moi ! @</a>
   <hr>
   <h1 style="font-size:28px">MTool</h1>
     <h3 style="font-size:15px">Un outil simple pour les musicothérapeutes</h3>
@@ -724,8 +746,7 @@ $(document).ready(function() {
     const filters = [
       ['filter-buts', 'Buts'], ['filter-sous-buts', 'Sous-buts'],
       ['filter-type', "Type d'expérience"], ['filter-moment', 'Moment de séance'],
-      ['filter-activation', 'Activation'], ['filter-configuration', 'Configuration'],
-      ['filter-statut', 'Statut']
+      ['filter-activation', 'Activation'], ['filter-configuration', 'Configuration']
     ];
     filters.forEach(([id, field]) => {
       const select = document.getElementById(id);
@@ -749,8 +770,7 @@ $(document).ready(function() {
       ["Type d'expérience", document.getElementById('filter-type').value],
       ['Moment de séance', document.getElementById('filter-moment').value],
       ['Activation', document.getElementById('filter-activation').value],
-      ['Configuration', document.getElementById('filter-configuration').value],
-      ['Statut', document.getElementById('filter-statut').value]
+      ['Configuration', document.getElementById('filter-configuration').value]
     ];
     const filtered = mtoolInterventions.filter(row => {
   const allText = Object.values(row).join(' ').toLocaleLowerCase('fr');
@@ -810,7 +830,7 @@ $(document).ready(function() {
     const button = event.target.closest('.mtool-detail-button');
     if (button) mtoolShowDetails(Number(button.dataset.index));
   });
-  ['mtool-search','filter-buts','filter-sous-buts','filter-type','filter-moment','filter-activation','filter-configuration','filter-statut'].forEach(id => {
+  ['mtool-search','filter-buts','filter-sous-buts','filter-type','filter-moment','filter-activation','filter-configuration'].forEach(id => {
     document.getElementById(id).addEventListener(id === 'mtool-search' ? 'input' : 'change', mtoolRenderRows);
   });
 
