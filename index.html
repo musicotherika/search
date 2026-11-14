@@ -16,7 +16,7 @@
   <meta property="og:image" content="http://musicotherika.github.io/search/logo2.png">
   <meta property="og:image:width" content="400">
   <meta property="og:image:height" content="220">
-  <meta property="og:description" content="Bonjour, que puis-je rechercher pour vous aujourd'hui? (entrez l'âge, le diagnostic et/ou les buts de votre client pour obtenir des suggestions d'interventions)">
+  <meta property="og:description" content="Bonjour, que puis-je rechercher pour vous aujourd'hui? (filtrez par but, type d'expérience ou moment de séance, ou tapez un mot-clé pour trouver des idées d'interventions)">
   <!-- Nom de la page web -->
   <title>MTool, un outil simple pour les musicothérapeutes, par Erika G.</title>
   <link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
@@ -436,7 +436,7 @@ width: 90% !important;
 <!-- PRÉSENTATION-->
 <main>
 <h4 class= "a animated fadeInDown slower delay-1s">Bonjour, que puis-je rechercher pour vous aujourd'hui?</h4>
-<i><h5 class= "a animated fadeInDown delay-2s">(entrez l'âge, le diagnostic et/ou les buts de votre client pour obtenir des suggestions d'interventions)</h5></i>
+<i><h5 class= "a animated fadeInDown delay-2s">(filtrez par but, type d'expérience ou moment de séance, ou tapez un mot-clé pour trouver des idées d'interventions)</h5></i>
 
 <!-- DARK MODE
 <div class="a" style="font-size: 10px"><button onclick="myFunction()">Toggle dark mode</button>
@@ -494,33 +494,12 @@ width: 90% !important;
 </div>
 <hr>
 
-<!-- SUGGESTION / AJOUT par Google Sheet-->
+<!-- SUGGESTION / AJOUT par formulaire Google Forms-->
 <div style="padding: 30px;">
   <div class="container text-center my-4">
-    <a class="btn btn-dark-green mb-4" href="https://docs.google.com/spreadsheets/d/1zcwB1XyOKm12CLToASPKBLPQuu5V89_L/edit#gid=365610982" role="button" target="_blank">Ajouter une suggestion</a>
+    <p>Une idée d'intervention à partager ? Elle sera relue avant d'être ajoutée à la base.</p>
+    <a class="btn btn-dark-green mb-4" href="https://forms.gle/buB3UYGDNBy4qBcm9" role="button" target="_blank" rel="noopener">Ajouter une suggestion</a>
   </div>
-
-<div class="table-responsive">
-<table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-    <!-- Table head -->
-    <thead>
-      <tr>
-        <th>Titre</th>
-        <th>Configuration</th>
-        <th>Âge</th>
-        <th>Diagnostic</th>
-        <th>Buts</th>
-        <th>Objectifs</th>
-        <th>Note</th>
-      </tr>
-    </thead>
-    <!-- Table head -->
-
-    <!-- Table body vers JavaScript // JSON du GoogleSheet -->
-    <tbody id="demo">
-    </tbody>
-  </table>
-</div>
 </div>
 </main>
 <!-- FOOTER -->
