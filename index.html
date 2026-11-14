@@ -336,7 +336,6 @@ span{
 width: 90% !important;
 }
 
-}
   /* Couleurs pastel des boutons Détails */
 
 .mtool-detail-button {
@@ -357,6 +356,28 @@ width: 90% !important;
 .mtool-detail-button.pastel-4 { background-color: #cce3c5 !important; }
 .mtool-detail-button.pastel-5 { background-color: #c5deef !important; }
 .mtool-detail-button.pastel-6 { background-color: #d9cbed !important; }
+
+/* En-têtes de colonnes cliquables (tri) */
+.mtool-sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.mtool-sortable:hover {
+  background-color: #efe6dd;
+}
+.mtool-sortable:focus {
+  outline: 2px solid #8a7f88;
+  outline-offset: -2px;
+}
+.mtool-arrow {
+  font-size: 0.8em;
+  color: #8a8a8a;
+}
+.mtool-sortable[aria-sort="ascending"] .mtool-arrow,
+.mtool-sortable[aria-sort="descending"] .mtool-arrow {
+  color: #333333;
+}
 </style>
 </head>
 <body>
@@ -443,9 +464,17 @@ width: 90% !important;
   <div class="table-responsive">
     <table id="mtool-table" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
       <thead><tr>
-        <th>Titre</th><th>Configuration</th><th>Buts</th><th>Sous-buts</th>
-        <th>Type d'expérience</th><th>Moment de séance</th><th>Activation</th>
-        <th>Matériel</th><th>Durée (min)</th><th>Statut</th><th>Détails</th>
+        <th class="mtool-sortable" data-sort="Titre" tabindex="0">Titre <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Configuration" tabindex="0">Configuration <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Buts" tabindex="0">Buts <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Sous-buts" tabindex="0">Sous-buts <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Type d'expérience" tabindex="0">Type d'expérience <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Moment de séance" tabindex="0">Moment de séance <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Activation" tabindex="0">Activation <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Matériel" tabindex="0">Matériel <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Durée (min)" tabindex="0">Durée (min) <span class="mtool-arrow"></span></th>
+        <th class="mtool-sortable" data-sort="Statut" tabindex="0">Statut <span class="mtool-arrow"></span></th>
+        <th>Détails</th>
       </tr></thead>
       <tbody id="mtool-rows"></tbody>
     </table>
@@ -578,6 +607,15 @@ $(document).ready(function() {
   const MTOOL_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQsGuW2ZdVmJzAf-FY2o7JcKruvdYexhzK1dMhTZejZBnnEq2Z46FN52dLS89dHHg/pub?gid=365610982&single=true&output=csv';
   let mtoolInterventions = [];
 
+  // TRI : colonne et sens actuellement utilisés (au départ : Titre, de A à Z)
+  let mtoolSort = { field: 'Titre', dir: 'asc' };
+
+  // Ordre "logique" (et non alphabétique) pour ces deux colonnes
+  const mtoolOrderLists = {
+    'Moment de séance': ['ouverture', 'coeur de seance', 'cloture', 'flexible'],
+    'Activation': ['calme', 'moderee', 'energique']
+  };
+
   const mtoolFields = {
     titre: 'Titre',
     configuration: 'Configuration',
@@ -594,7 +632,7 @@ $(document).ready(function() {
 
   function mtoolNormalizeHeader(value) {
     return String(value || '').trim().toLocaleLowerCase('fr')
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ');
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/œ/g, 'oe').replace(/\s+/g, ' ');
   }
 
   function mtoolEscape(value) {
@@ -607,6 +645,48 @@ $(document).ready(function() {
     const wanted = mtoolNormalizeHeader(label);
     const key = Object.keys(row).find(k => mtoolNormalizeHeader(k) === wanted);
     return key ? String(row[key] == null ? '' : row[key]).trim() : '';
+  }
+
+  // Compare deux interventions selon la colonne choisie pour le tri
+  function mtoolCompare(a, b) {
+    const field = mtoolSort.field;
+    const va = mtoolValue(a, field);
+    const vb = mtoolValue(b, field);
+
+    // Les cases vides vont toujours à la fin, peu importe le sens du tri
+    if (!va && !vb) return 0;
+    if (!va) return 1;
+    if (!vb) return -1;
+
+    let result;
+    if (mtoolOrderLists[field]) {
+      const list = mtoolOrderLists[field];
+      const ia = list.indexOf(mtoolNormalizeHeader(va.split(/[;,\n]/)[0]));
+      const ib = list.indexOf(mtoolNormalizeHeader(vb.split(/[;,\n]/)[0]));
+      result = (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+      if (result === 0) result = va.localeCompare(vb, 'fr', {sensitivity: 'base'});
+    } else if (field === 'Durée (min)') {
+      result = (parseFloat(va) || 0) - (parseFloat(vb) || 0);
+    } else {
+      result = va.localeCompare(vb, 'fr', {sensitivity: 'base', numeric: true});
+    }
+    return mtoolSort.dir === 'asc' ? result : -result;
+  }
+
+  // Si deux interventions sont "à égalité", on les classe par titre
+  function mtoolCompareWithTitle(a, b) {
+    const result = mtoolCompare(a, b);
+    if (result !== 0) return result;
+    return mtoolValue(a, 'Titre').localeCompare(mtoolValue(b, 'Titre'), 'fr', {sensitivity: 'base', numeric: true});
+  }
+
+  // Met à jour les petites flèches dans les en-têtes
+  function mtoolUpdateArrows() {
+    document.querySelectorAll('#mtool-table th[data-sort]').forEach(th => {
+      const active = th.dataset.sort === mtoolSort.field;
+      th.querySelector('.mtool-arrow').textContent = active ? (mtoolSort.dir === 'asc' ? '▲' : '▼') : '↕';
+      th.setAttribute('aria-sort', active ? (mtoolSort.dir === 'asc' ? 'ascending' : 'descending') : 'none');
+    });
   }
 
   function mtoolUniqueValues(field) {
@@ -656,10 +736,13 @@ $(document).ready(function() {
     mtoolValue(row, field).split(/[;,\n]/).map(v => v.trim()).includes(selected));
 });
 
+    // Tri des interventions affichées
+    const sorted = filtered.slice().sort(mtoolCompareWithTitle);
+
     const tbody = document.getElementById('mtool-rows');
-    tbody.innerHTML = filtered.map(row => {
+    tbody.innerHTML = sorted.map(row => {
       const originalIndex = mtoolInterventions.indexOf(row);
-      const pastelClass = 'pastel-' + (filtered.indexOf(row) % 6 + 1);
+      const pastelClass = 'pastel-' + (sorted.indexOf(row) % 6 + 1);
       return `<tr>
         <td>${mtoolEscape(mtoolValue(row, 'Titre'))}</td>
         <td>${mtoolEscape(mtoolValue(row, 'Configuration'))}</td>
@@ -675,6 +758,7 @@ $(document).ready(function() {
       </tr>`;
     }).join('');
     document.getElementById('mtool-count').textContent = `${filtered.length} intervention${filtered.length > 1 ? 's' : ''} affichée${filtered.length > 1 ? 's' : ''} sur ${mtoolInterventions.length}`;
+    mtoolUpdateArrows();
   }
 
   function mtoolShowDetails(index) {
@@ -706,6 +790,26 @@ $(document).ready(function() {
   ['mtool-search','filter-buts','filter-sous-buts','filter-type','filter-moment','filter-activation','filter-configuration','filter-statut'].forEach(id => {
     document.getElementById(id).addEventListener(id === 'mtool-search' ? 'input' : 'change', mtoolRenderRows);
   });
+
+  // TRI : clic (ou touche Entrée) sur un en-tête de colonne
+  function mtoolHandleSort(event) {
+    if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') return;
+    const th = event.target.closest('th[data-sort]');
+    if (!th) return;
+    event.preventDefault();
+    const field = th.dataset.sort;
+    if (mtoolSort.field === field) {
+      mtoolSort.dir = mtoolSort.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      mtoolSort.field = field;
+      mtoolSort.dir = 'asc';
+    }
+    mtoolRenderRows();
+  }
+  const mtoolHead = document.querySelector('#mtool-table thead');
+  mtoolHead.addEventListener('click', mtoolHandleSort);
+  mtoolHead.addEventListener('keydown', mtoolHandleSort);
+  mtoolUpdateArrows();
 
   if (window.Papa) {
     Papa.parse(MTOOL_CSV_URL, {
